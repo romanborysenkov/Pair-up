@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{EBA4296B-B432-4FAE-9F07-C3EFC0530948}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_3a_xl_q_10_0_-_api_29" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.0.0.0" />
+  <MonoDevelop.Ide.ItemProperties.Pair__up.Android PreferredExecutionTarget="Android.pixel_3a_xl_q_10_0_-_api_29" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pair_up/MainPage.xaml.cs">
+    <Files>
+      <File FileName="Pair_up/ViewModels/MembersViewModel.cs" Line="19" Column="98" />
+      <File FileName="Pair_up/Models/MyListModel.cs" Line="8" Column="6" />
+      <File FileName="Pair_up/MainPage.xaml" Line="34" Column="24" />
+      <File FileName="Pair_up/MainPage.xaml.cs" Line="92" Column="33" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Pair_up" expanded="True">
+            <Node name="Pair_up" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="App.xaml" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True">
+                <Node name="MainPage.xaml.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Pair_up.Android" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Pair__up.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget." FirstBuild="True" />
+</Properties>

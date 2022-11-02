@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pair_up.MainPage"
+             BackgroundColor="White">
+
+    <StackLayout HorizontalOptions="Center">
+
+        <StackLayout Padding="10,10,10,0" Orientation="Horizontal">
+            <StackLayout HorizontalOptions="CenterAndExpand" HeightRequest="80"  WidthRequest="210">
+                <Frame BackgroundColor="#14ae5c" CornerRadius="4" HeightRequest="80">
+                     <Label VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium" TextColor="White" Text="Ініціатор"/>
+                 </Frame>
+
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="210">
+                <Frame  BackgroundColor="#1e1e1e" CornerRadius="4" HeightRequest="80">
+                     <Label VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium" TextColor="White" Text="Очікує"/>
+                 </Frame>
+
+            </StackLayout>
+
+        </StackLayout>
+                  
+        <CollectionView ItemsSource="{Binding QuestionList}"  x:Name="collectionView"
+                  Margin="10,0,0,0"
+                  
+                  ItemsLayout="VerticalGrid, 2">
+            
+           
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate >
+                   <Grid >
+                 <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                        <StackLayout  Opacity="0.8">
+                           
+                            <Frame BackgroundColor="#e6e6e6" CornerRadius="4" HeightRequest="70">
+                                      <Image x:Name="oleh" HorizontalOptions="Center" Scale="3" Source="{Binding Photo}">
+                                     
+                                </Image>
+                                    
+                               
+                               <!-- <Label WidthRequest="210" FontSize="16" FontAttributes="Bold" TextColor="Black"
+                                       Text="{Binding Quest}"/>-->
+                              
+                            </Frame>
+                       </StackLayout>
+                       
+                    </Grid>
+                    
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+          
+        </CollectionView>
+        <Button TextColor="Black" BackgroundColor="#e6e6e6" x:Name="pairing_button" Clicked="Button_Clicked"  ScaleX="0.9" ScaleY="0.9" CornerRadius="90"></Button>
+   </StackLayout>
+    
+
+</ContentPage>
