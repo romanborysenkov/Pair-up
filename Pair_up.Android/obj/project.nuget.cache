@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m0O1Ty/3eOzGRo8gbJxmmqEy1haAb6Qc/Xnx121T88o4HLlJCHd+qyDpXzmxW9tAfKAGMjebEf4v1pGmkMnzHA==",
+  "dgSpecHash": "s+OAr2oI+dTErStaiRmK495cBMWk4zIjBC2fxKnMyyhm67OXPf0ZtWiqU1IU3L0jGpIuBQB3PP21k7tytXgyCQ==",
   "success": true,
-  "projectFilePath": "/Users/romsyaborysenko/Documents/programming/xamarin/Pair_up/Pair_up.Android/Pair_up.Android.csproj",
+  "projectFilePath": "/Users/romsyaborysenko/Documents/programming/NET/xamarin/Pair_up/Pair_up.Android/Pair_up.Android.csproj",
   "expectedPackageFiles": [
     "/Users/romsyaborysenko/.nuget/packages/plugin.localnotification/5.2.0/plugin.localnotification.5.2.0.nupkg.sha512",
     "/Users/romsyaborysenko/.nuget/packages/sqlite-net-pcl/1.8.116/sqlite-net-pcl.1.8.116.nupkg.sha512",

@@ -4,9 +4,9 @@ using SQLite;
 
 namespace Pair_up.Models
 {
-    public class MyListModel
+    public class People
     {
-        public string Quest { get; set; }
+        public string Name { get; set; }
 
        public string Photo { get; set; }
     }

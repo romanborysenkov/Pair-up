@@ -14,16 +14,16 @@ namespace Pair_up.Data
         {
             members_db = new SQLiteAsyncConnection(connectionString);
 
-            members_db.CreateTableAsync<MyListModel>().Wait();
+            members_db.CreateTableAsync<People>().Wait();
         }
 
-        public Task<List<MyListModel>> GetMembersAsync()
+        public Task<List<People>> GetMembersAsync()
         {
-            return members_db.Table<MyListModel>().ToListAsync();
+            return members_db.Table<People>().ToListAsync();
 
         }
 
-        public Task<int> DeleteNoteAsync(MyListModel mylistmodel)
+        public Task<int> DeleteNoteAsync(People mylistmodel)
         {
             return members_db.DeleteAsync(mylistmodel); 
         }

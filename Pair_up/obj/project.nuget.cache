@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nqghDsX0+K4ABbc0QY1ePLzBjXskTaZTsrYXoxd0szGZrjk+J3Pr8gBHDGIhUFeHVR0jDBh2TH0lNSozGnNJUA==",
+  "dgSpecHash": "ebhoDHUAIKjZtbY8l2EPtXnd3wwFbzowtLrJqxfKu5tX4APxtYPpQ4ydmIsmC9flMBIPdYxBhthwhzFSUQJkNg==",
   "success": true,
-  "projectFilePath": "/Users/romsyaborysenko/Documents/programming/xamarin/Pair_up/Pair_up/Pair_up.csproj",
+  "projectFilePath": "/Users/romsyaborysenko/Documents/programming/NET/xamarin/Pair_up/Pair_up/Pair_up.csproj",
   "expectedPackageFiles": [
     "/Users/romsyaborysenko/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/romsyaborysenko/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",

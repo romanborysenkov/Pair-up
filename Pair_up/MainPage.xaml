@@ -2,10 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pair_up.MainPage"
+          xmlns:viewmodels="clr-namespace:Pair_up.ViewModels"
+                xmlns:model="clr-namespace:Pair_up.Models"
+              x:DataType="viewmodels:MembersViewModel"
              BackgroundColor="White">
 
-    <StackLayout HorizontalOptions="Center">
+    <ContentPage.BindingContext>
+        <viewmodels:MembersViewModel/>
+    </ContentPage.BindingContext>
 
+    <StackLayout HorizontalOptions="Center">
         <StackLayout Padding="10,10,10,0" Orientation="Horizontal">
             <StackLayout HorizontalOptions="CenterAndExpand" HeightRequest="80"  WidthRequest="210">
                 <Frame BackgroundColor="#14ae5c" CornerRadius="4" HeightRequest="80">
@@ -17,19 +23,17 @@
                 <Frame  BackgroundColor="#1e1e1e" CornerRadius="4" HeightRequest="80">
                      <Label VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium" TextColor="White" Text="Очікує"/>
                  </Frame>
-
             </StackLayout>
-
         </StackLayout>
-                  
-        <CollectionView ItemsSource="{Binding QuestionList}"  x:Name="collectionView"
-                  Margin="10,0,0,0"
-                  
-                  ItemsLayout="VerticalGrid, 2">
-            
-           
-            <CollectionView.ItemTemplate>
+        <AbsoluteLayout>
 
+            <Label x:DataType="viewmodels:MembersViewModel" Opacity="0.7" Margin="130,45" Text="{Binding timer.OutTime}"
+                   x:Name="timer" FontSize="112" TextColor="Black"/>
+
+            <RefreshView Command="{Binding OnClickMix}" IsRefreshing="{Binding IsBusy}">
+        <CollectionView ItemsSource="{Binding PeoplesList,Mode=TwoWay}"  x:Name="collectionView"
+                  Margin="10,0,0,0"  ItemsLayout="VerticalGrid, 2">
+            <CollectionView.ItemTemplate>
                 <DataTemplate >
                    <Grid >
                  <Grid.RowDefinitions>
@@ -40,29 +44,21 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-                        <StackLayout  Opacity="0.8">
-                           
-                            <Frame BackgroundColor="#e6e6e6" CornerRadius="4" HeightRequest="70">
-                                      <Image x:Name="oleh" HorizontalOptions="Center" Scale="3" Source="{Binding Photo}">
-                                     
+                        <StackLayout x:DataType="viewmodels:MembersViewModel" Opacity="1">
+                            
+                            <Frame x:DataType="model:People" Opacity="0.9" BackgroundColor="White" CornerRadius="4" HeightRequest="40">
+                                      <Image x:Name="oleh" HorizontalOptions="Center" Scale="1.5" Source="{Binding Photo}">   
                                 </Image>
-                                    
-                               
-                               <!-- <Label WidthRequest="210" FontSize="16" FontAttributes="Bold" TextColor="Black"
-                                       Text="{Binding Quest}"/>-->
-                              
                             </Frame>
                        </StackLayout>
-                       
                     </Grid>
-                    
                 </DataTemplate>
-                
+
             </CollectionView.ItemTemplate>
-          
+
         </CollectionView>
-        <Button TextColor="Black" BackgroundColor="#e6e6e6" x:Name="pairing_button" Clicked="Button_Clicked"  ScaleX="0.9" ScaleY="0.9" CornerRadius="90"></Button>
-   </StackLayout>
-    
+                   </RefreshView>
+       </AbsoluteLayout>
+      </StackLayout>
 
 </ContentPage>
