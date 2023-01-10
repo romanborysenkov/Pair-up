@@ -36,7 +36,7 @@ namespace Pair_up.ViewModels
             set { second = value; OnPropertyChanged(); }
         }
 
-        protected bool isrunning;
+        public bool isrunning;
 
         private string outtime;
 
@@ -60,7 +60,7 @@ namespace Pair_up.ViewModels
                 Device.StartTimer(new TimeSpan(0, 0, 0, 1), () =>
                 {
                     isrunning = true;
-                    if (Convert.ToInt32(time.Seconds) > 0 && Convert.ToInt32(time.Minutes) <= 0 && Convert.ToInt32(time.Hours) <= 0 && Convert.ToInt32(time.Days) <= 0)
+                    if (Convert.ToInt32(time.Seconds) == 1 && Convert.ToInt32(time.Minutes) <= 0 && Convert.ToInt32(time.Hours) <= 0 && Convert.ToInt32(time.Days) <= 0)
                     {
                         isrunning = false;
                         return isrunning;
@@ -70,7 +70,7 @@ namespace Pair_up.ViewModels
                         runtime = Preferences.Get("Start", DateTime.Now);
                         TimeSpan span = datetime - (DateTime.Now - runtime);
                         time.Timespan = span;
-                        OutTime = time.Days + "" + time.Hours + "" + time.Minutes+""+time.Seconds;
+                        OutTime = time.Days + "" + time.Hours + "" + time.Minutes + "" + time.Seconds ;
                         return isrunning = true;
                     }
 

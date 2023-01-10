@@ -14,7 +14,8 @@ namespace Pair_up.ViewModels
         public Command OnClickMix { get; set; }
 
       public TimerViewModel timer { get; set; } = new TimerViewModel();
-      
+        public ImageSource Image { get; private set; }
+
         public MembersViewModel()
         {
            
@@ -30,7 +31,6 @@ namespace Pair_up.ViewModels
 
          ~MembersViewModel()
         {
-            // Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
             Accelerometer.ShakeDetected -= Accelerometer_ShakeDetected;
             Accelerometer.Stop();
         }
@@ -38,30 +38,43 @@ namespace Pair_up.ViewModels
         private void Accelerometer_ShakeDetected(object sender, EventArgs e)
         {
             MixPeoples();
-            Vibration.Vibrate(new TimeSpan(0,0,0,0,500));
+            Vibration.Vibrate(new TimeSpan(0,0,0,0,200));
+
+          /*  var screenshot = await Screenshot.CaptureAsync();
+            var stream = await screenshot.OpenReadAsync();
+
+            Image = ImageSource.FromStream(() => stream);*/
+
         }
 
           void MixPeoples()
         {
-            IsBusy = true;
-            Preferences.Set("Start", DateTime.Now);
-
-            Randomizer();
-
-            int[] mas;
-            mas = finder();
-
-            while (mas[0] - mas[1] == ((int)(PeoplesList.Count / 2)))
+            if (timer.isrunning)
             {
-                Randomizer();
-                finder();
+                IsBusy = false;
             }
-            while (mas[0] - mas[1] == 9)
+            else
             {
+                IsBusy = true;
+                Preferences.Set("Start", DateTime.Now);
+
                 Randomizer();
-                finder();
+
+                int[] mas;
+                mas = finder();
+
+                while (mas[0] - mas[1] == ((int)(PeoplesList.Count / 2)))
+                {
+                    Randomizer();
+                    finder();
+                }
+                while (mas[0] - mas[1] == 9)
+                {
+                    Randomizer();
+                    finder();
+                }
+                IsBusy = false;
             }
-            IsBusy = false;
        
         }
 
@@ -103,46 +116,6 @@ namespace Pair_up.ViewModels
 
             return this.PeoplesList;
         }
-
-
-       /* public void Timer()
-        {
-            var timer = new TimeSpan(6, 23, 59, 59);
-
-            DateTime runTime = Preferences.Get("Start", DateTime.Now);
-
-            bool isRunning = false;
-
-            System.Threading.Tasks.Task.Run(async () =>
-            {
-                Device.StartTimer(new TimeSpan(0, 0, 1), () =>
-                {
-                    isRunning = true;
-                    if (Convert.ToInt32(time.Seconds) > 0 && Convert.ToInt32(time.Minutes) <= 0 && Convert.ToInt32(time.Hours) <= 0 && Convert.ToInt32(time.Days) <= 0)
-                    {
-                        isRunning = false;
-                        return isRunning;
-                    }
-                    else
-                    {
-                        rt = Preferences.Get("Start", DateTime.Now);
-                        isRunning = true;
-                        TimeSpan timespan = dtm - (DateTime.Now - rt);
-                        time.Timespan = timespan;
-                        timer.Text = time.Days + "" + time.Hours + "" + time.Minutes;
-                        //  pairing_button.Text = time.Days + " days";// time.Days + ":" + time.Hours + ":" + time.Minutes + ":" + time.Seconds; ;
-                        return isRunning = true;
-
-                    }
-                    // return isRunning;
-                });
-                if (Convert.ToInt32(time.Days) <= 0 && Convert.ToInt32(time.Hours) <= 0 && Convert.ToInt32(time.Minutes) <= 0 && Convert.ToInt32(time.Seconds) <= 0)
-                {
-                    isRunning = false;
-                }
-            });
-        }*/
-
 
         public int[] finder()
         {
